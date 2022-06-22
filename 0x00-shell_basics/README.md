@@ -3,3 +3,8 @@
 3.Navigate user back to home directory.
 4.Display current directory contents in a long format.
 5.Display current directory contents, including hidden files (starting with .) make sure to Use the long format.
+6Display current directory contents.
+-Long format
+-with user and group IDs displayed numerically
+-And hidden files (starting with .)
+
