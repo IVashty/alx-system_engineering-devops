@@ -13,4 +13,6 @@
 10.Deleting a directory(my_first_directory).
 11.Changing the working directory to the previous one.
 12.lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
-13.A script that prints the type of the file named iamafile
+13.A script that prints the type of the file named iamafile.
+14.Create a symbolic link to /bin/ls, named __ls__. The symbolic link should be created in the current working directory.
+
