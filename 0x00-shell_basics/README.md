@@ -41,6 +41,3 @@
 
 20.Create a magic file school.mgc that can be used with the command file to detect School data files. School data files always contain the string SCHOOL at offset 0.
 
-TASK SECTON TWO
-Tasks
-0.A script that switches the current user to a user called betty.
