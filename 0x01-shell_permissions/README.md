@@ -45,4 +45,4 @@ The file hello will be in the working directory
 The file _hello is in the working directory
 The file _hello is a symbolic link
 
-
+17. A  script that changes the owner of the file hello to betty only if it is owned by the user guillaume.
