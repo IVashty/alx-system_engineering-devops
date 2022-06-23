@@ -37,4 +37,12 @@ The file olleh will be in the working directory
 
 The file hello will be in the working directory
 
+15.
+
+ 
+16. Ascript that changes the owner and the group owner of _hello to vincent and staff respectively.
+
+The file _hello is in the working directory
+The file _hello is a symbolic link
+
 
