@@ -45,6 +45,10 @@ Words should be sorted
 
 21. A script that reverses input.
 
+22. A script that displays all users and their home directories, sorted by users.
+
+Based on the the /etc/passwd file
+
 
 
 
