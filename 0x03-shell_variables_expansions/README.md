@@ -11,4 +11,6 @@
 
 5. A script that lists all local variables and environment variables, and functions.
 
-6. A script that creates a new local variable. 
+6. A script that creates a new local variable.
+
+7. A script that creates a new global variables. 
