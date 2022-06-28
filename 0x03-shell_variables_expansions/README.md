@@ -9,4 +9,4 @@
 
 4. A script that lists environment variables.
 
- 
+5. A script that lists all local variables and environment variables, and functions. 
