@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Script displays Best School 10 times using FOR loop restrictively.
 
-for ((word=0; word<=10; word++))
+for ((word=0; word<10; word++))
 do
         echo "Best School"
 done
