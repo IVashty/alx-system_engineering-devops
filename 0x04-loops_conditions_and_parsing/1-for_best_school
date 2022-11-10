@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
+#This file script displays Best School 10 times using FOR loop only.
 
-#A Bash script that displays Best School 10 times using FOR loop.
-
-for _ in {1..10}
-
+for ((word=0; word<=10; word++))
 do
-        word="Best School"
-        echo "$word"
-
+        echo "Best School"
 done
+
