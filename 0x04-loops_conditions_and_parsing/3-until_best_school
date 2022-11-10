@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Script displays Best School 10 times using UNTIL loop restrictively.
+
+word=10
+until ((word == 0))
+do
+        echo "Best School"
+        word=$((word-1))
+done
+
