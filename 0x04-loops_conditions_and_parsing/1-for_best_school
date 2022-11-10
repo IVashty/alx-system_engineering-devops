@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+#A Bash script that displays Best School 10 times using FOR loop.
+
+for _ in {1..10}
+
+do
+        word="Best School"
+        echo "$word"
+
+done
