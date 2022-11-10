@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Script displays Best School 10 times using WHILE loop restrictively.
+
+word=0
+while ((word<10))
+do
+        echo "Best School"
+        word=$((word +1))
+done
+
