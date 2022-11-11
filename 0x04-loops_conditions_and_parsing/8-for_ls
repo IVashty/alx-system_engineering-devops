@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A sript that displays the content of current directory in  alist form and only
+# files with underscore should be displayed.
+
+for  FILE in *
+do
+        echo "$FILE" | cut -d '-' -f2
+done
