@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#This script displays Best School 10times but in the 9th iterartion displays 
+#School AND Then  hi on  a new line.
+
+word=0
+while ((word <= 9 ))
+do
+        if [ "$word" == 9 ]
+                then
+                        echo Hi
+        fi
+        echo Best School
+        word=$((word+1))
+done
