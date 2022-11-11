@@ -1,5 +1,5 @@
-#!/bin/env bash
-#   DESCRIPTION: It loops from one to 10 and it displays bad luck in the 4th
+#!/usr/bin/env bash
+#DESCRIPTION: It loops from one to 10 and it displays bad luck in the 4th
 #   loop ,good luck for the 8th loop and Best school for the other iterations.
 
 word=1
