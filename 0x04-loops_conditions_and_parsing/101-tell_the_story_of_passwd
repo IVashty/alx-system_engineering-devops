@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script thatdisplays the contents of /etc/passwd usinfg hile loop + IFS
+
+while IFS=':' read -r word1 word2 word3 word4 word5 word6 word7
+do
+         echo "The user $word1 is part of the $word4 gang, lives in $word6 \
+                and rides $word7. $word3's place is protected by the passcode\
+                $word2, more info about the user here: $word5"
+done < /etc/passwd
