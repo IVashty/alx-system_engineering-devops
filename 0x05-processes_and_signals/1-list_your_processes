@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A Script that displays all the current running processes in full format.
+
+ps -uax --forest
