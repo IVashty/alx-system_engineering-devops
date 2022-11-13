@@ -1,0 +1,7 @@
+#!/usr/bin/env  bash
+# A Script that displays lines containg the bash word so as to get the PID
+# process of BASH
+
+ps -uax | grep "bash"
+
+# shellcheck disable=SC2009 
