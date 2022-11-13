@@ -2,6 +2,4 @@
 # A Script that displays lines containg the bash word so as to get the PID process of BASH
 # shellcheck disable=SC2009
 
-ps -uax | grep "bash"
-
-
+ps -uax | grep 'bash'
