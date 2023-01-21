@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#write script with the minimum number of commands to automate your
+#fix of destroying as many containers as you need to debug
+#and configure server to the given requirements
+#nginx must be running
+
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo service nginx restart
