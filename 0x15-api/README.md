@@ -42,3 +42,12 @@
 - All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
 - You must use [get](https://intranet.alxswe.com/rltoken/CNqOWPW6mdYuK7Ak-f2KHQ "get") to access to dictionary value by key (it won’t throw an exception if the key doesn’t exist in the dictionary)
 - Your code should not be executed when imported (by using `if __name__ == "__main__":`)
+
+# TASKS:
+0: Script that suing REST API for a given employee ID returns the information about about his or her todolist progess.
+script must :
+    use urllib pr requests module
+    accept an integer as a parameter-employee ID
+    display on  standard output
+
+
