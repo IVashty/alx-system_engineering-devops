@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 script gathers data from an API  to return information about\
-        employee todo list progess using requests and urllib
+        employee todo list progess
+requests module
 """
 import requests
 import sys
