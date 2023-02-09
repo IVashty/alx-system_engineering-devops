@@ -28,7 +28,10 @@ def get_employee_todo_list(employee_id):
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
-    completed_todos = [todo.get("title") for todo in todos if todo.get("completed")]
+    completed_todos = [todo.get("title")
+                       for todo in todos
+                       if todo.get("completed")
+                       ]
     todo_count = len(todos)
     completed_count = len(completed_todos)
 
