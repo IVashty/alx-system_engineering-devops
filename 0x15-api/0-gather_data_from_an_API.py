@@ -6,36 +6,51 @@ employee todo list progess
 import requests
 import sys
 
-if len(sys.argv) != 2:
-    print("Usage: python todo_list_progress.py <employee_id>")
-    sys.exit(1)
 
-employee_id = sys.argv[1]
-url = f"http://jsonplaceholder.typicode.com/users/{employee_id}"
+def get_employee_todo_progress(employee_id):
+    """
+    Get information about an employee's TODO list progress
 
-response = requests.get(url)
-if response.status_code != 200:
-    print("Could not get information for employee with ID", employee_id)
-    sys.exit(1)
+    Args:
+        employee_id (int): ID of the employee
 
-employee_info = response.json()
-employee_name = employee_info["name"]
+    Returns:
+        None
+    """
+    # Base URL for the REST API
+    base_url = "https://jsonplaceholder.typicode.com"
 
-url = f"http://jsonplaceholder.typicode.com/todos?userId={employee_id}"
-response = requests.get(url)
-if response.status_code != 200:
-    print("Could not get todo list for employee with ID", employee_id)
-    sys.exit(1)
+    # Get information about the employee
+    employee_response = requests.get(f"{base_url}/users/{employee_id}")
+    employee = employee_response.json()
+    employee_name = employee["name"]
 
-todo_list = response.json()
+    # Get the employee's TODO list
+    todo_response = requests.get(f"{base_url}/todos?userId={employee_id}")
+    todo_list = todo_response.json()
 
-completed_tasks = [task for task in todo_list if task["completed"]]
-number_of_done_tasks = len(completed_tasks)
-total_number_of_tasks = len(todo_list)
+    # Count the number of completed and total tasks
+    completed_tasks = [task for task in todo_list if task["completed"] is True]
+    total_tasks = len(todo_list)
+    completed_tasks_count = len(completed_tasks)
 
-print(
-    "Employee {employee_name} is done with tasks\
-            ({number_of_done_tasks}/{total_number_of_tasks}):"
-)
-for task in completed_tasks:
-    print("\t", task["title"])
+    # Display the employee's TODO list progress
+    print(
+        f"Employee {employee_name} is done\
+                with tasks({completed_tasks_count}/{total_tasks}):"
+    )
+    for task in completed_tasks:
+        print(f'\t{task["title"]}')
+
+
+if __name__ == "__main__":
+    # Check if an employee ID is provided as a command-line argument
+    if len(sys.argv) != 2:
+        print(
+            "Error: Please provide an employee\
+                ID as a command-line argument."
+        )
+        sys.exit(1)
+
+    employee_id = int(sys.argv[1])
+    get_employee_todo_progress(employee_id)
