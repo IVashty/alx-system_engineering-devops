@@ -3,6 +3,7 @@
 This script retrieves information about \
         the tasks of an employee from a REST API
 and exports the data in JSON format.
+file name must be USER_ID.json
 """
 import json
 import sys
