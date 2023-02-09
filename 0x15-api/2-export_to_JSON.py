@@ -3,7 +3,16 @@
 This script retrieves information about \
         the tasks of an employee from a REST API
 and exports the data in JSON format.
-file name must be USER_ID.json
+format must be:
+    { "USER_ID": [
+    {"task": "TASK_TITLE","completed": TASK_COMPLETED_STATUS,
+    "username": "USERNAME"},
+    {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS,
+    "username": "USERNAME"},
+    ... ]
+    }
+
+file name is formatted as USER_ID.json
 """
 import json
 import sys
