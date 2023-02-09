@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
 script using REST API  to return information about
-employee todo list progess
+employee todo list progess using requests
 """
+import re
 import requests
 import sys
 
