@@ -2,8 +2,8 @@
 """
 This script retrieves information about \
         the tasks of an employee from a REST API
-and exports the data in JSON format.
-format must be:
+The REST API provides information and\
+        exports the data in JSON format in the format:
     { "USER_ID": [
     {"task": "TASK_TITLE","completed": TASK_COMPLETED_STATUS,
     "username": "USERNAME"},
