@@ -14,27 +14,42 @@ import csv
 import requests
 import sys
 
+
 if __name__ == "__main__":
     employee_id = sys.argv[1]
-    api_url = "https://jsonplaceholder.typicode.com/users/{}/todos".\
-        format(employee_id)
-    response = requests.get(api_url)
-    employee_todos = response.json()
+    employee_tasks = []
+    employee_name = ""
 
-    completed_tasks = [
-            task for task in employee_todos
-            if task.get("completed") is True
+    # Get the employee information and tasks
+    url = "https://jsonplaceholder.typicode.com/users/{}"
+    user_url = url.format(employee_id)
+    tasks_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
+        employee_id
+    )
+    user_res = requests.get(user_url)
+    tasks_res = requests.get(tasks_url)
+
+    if user_res.status_code == 200:
+        employee_name = user_res.json().get("name")
+    if tasks_res.status_code == 200:
+        tasks = tasks_res.json()
+        for task in tasks:
+            task_info = [
+                employee_id,
+                employee_name,
+                task.get("completed"),
+                task.get("title"),
             ]
-    username = response.json()[0].get("username")
+            employee_tasks.append(task_info)
 
+    # Export the data to a CSV file
     file_name = "{}.csv".format(employee_id)
-    with open(file_name, mode="w") as csv_file:
-        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+    with open(file_name, mode="w") as file:
+        writer = csv.writer(file)
         writer.writerow([
             "USER_ID",
             "USERNAME",
             "TASK_COMPLETED_STATUS",
             "TASK_TITLE"
             ])
-        for task in completed_tasks:
-            writer.writerow([employee_id, username, "True", task.get("title")])
+        writer.writerows(employee_tasks)
