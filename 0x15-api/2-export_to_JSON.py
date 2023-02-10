@@ -15,8 +15,8 @@ The REST API provides information and\
 file name is formatted as USER_ID.json
 """
 import json
-import sys
 import requests
+import sys
 
 if __name__ == "__main__":
     employee_id = sys.argv[1]
