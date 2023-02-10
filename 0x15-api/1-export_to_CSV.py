@@ -16,40 +16,21 @@ import sys
 
 
 if __name__ == "__main__":
-    employee_id = sys.argv[1]
-    employee_tasks = []
-    employee_name = ""
+    user_id = sys.argv[1]
+    file_name = "{}.csv".format(user_id)
+    url = "https://jsonplaceholder.typicode.com"
 
-    # Get the employee information and tasks
-    url = "https://jsonplaceholder.typicode.com/users/{}"
-    user_url = url.format(employee_id)
-    tasks_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-        employee_id
-    )
-    user_res = requests.get(user_url)
-    tasks_res = requests.get(tasks_url)
+    user = requests.get("{}/users/{}".format(url, user_id)).json()
+    todo_list = requests.get("{}/users/{}/todos".format(url, user_id)).json()
 
-    if user_res.status_code == 200:
-        employee_name = user_res.json().get("name")
-    if tasks_res.status_code == 200:
-        tasks = tasks_res.json()
-        for task in tasks:
-            task_info = [
-                employee_id,
-                employee_name,
-                task.get("completed"),
-                task.get("title"),
-            ]
-            employee_tasks.append(task_info)
-
-    # Export the data to a CSV file
-    file_name = "{}.csv".format(employee_id)
-    with open(file_name, mode="w") as file:
-        writer = csv.writer(file)
-        writer.writerow([
-            "USER_ID",
-            "USERNAME",
-            "TASK_COMPLETED_STATUS",
-            "TASK_TITLE"
-            ])
-        writer.writerows(employee_tasks)
+    with open(file_name, "w") as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        for task in todo_list:
+            writer.writerow(
+                [
+                    user_id,
+                    user.get("username"),
+                    task.get("completed"),
+                    task.get("title"),
+                ]
+            )
