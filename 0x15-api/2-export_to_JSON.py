@@ -19,36 +19,23 @@ import sys
 import requests
 
 if __name__ == "__main__":
-    # Get employee ID from the command line argument
     employee_id = sys.argv[1]
+    tasks = []
+    content = {}
+    file_name = "{}.json".format(employee_id)
+    url = "https://jsonplaceholder.typicode.com"
 
-    # Make a GET request to the REST API
-    url = "https://jsonplaceholder.typicode.com/users/{employee_id}"
-    response = requests.get(url)
+    user = requests.get("{}/users/{}".format(url, employee_id)).json()
+    todo_list = requests.get("{}/users/{}/todos".format(
+        url, employee_id)).json()
 
-    # Get the JSON data from the response
-    employee_data = response.json()
-    employee_name = employee_data.get("name")
+    for todo in todo_list:
+        task = {}
+        task["task"] = todo.get("title")
+        task["completed"] = todo.get("completed")
+        task["username"] = user.get("username")
+        tasks.append(task)
+    content[employee_id] = tasks
 
-    # Make a GET request to the REST API to get the tasks of the employee
-    response = requests.get(
-        f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
-    )
-
-    # Get the JSON data from the response
-    tasks = response.json()
-
-    # Store the data in a dictionary
-    employee_tasks = {employee_id: []}
-    for task in tasks:
-        employee_tasks[employee_id].append(
-            {
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": employee_name,
-            }
-        )
-
-    # Write the data to a JSON file
-    with open(f"{employee_id}.json", "w") as json_file:
-        json.dump(employee_tasks, json_file)
+    with open(file_name, "w") as f:
+        json.dump(content, f)
