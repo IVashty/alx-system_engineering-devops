@@ -16,21 +16,21 @@ import sys
 
 
 if __name__ == "__main__":
-    user_id = sys.argv[1]
-    file_name = "{}.csv".format(user_id)
+    employee_id = sys.argv[1]
+    file_name = "{}.csv".format(employee_id)
     url = "https://jsonplaceholder.typicode.com"
 
-    user = requests.get("{}/users/{}".format(url, user_id)).json()
-    todo_list = requests.get("{}/users/{}/todos".format(url, user_id)).json()
+    user = requests.get("{}/users/{}".format(url, employee_id)).json()
+    todo_list = requests.get("{}/users/{}/todos".format(url, employee_id)).json()
 
     with open(file_name, "w") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        for task in todo_list:
+        for todo in todo_list:
             writer.writerow(
                 [
-                    user_id,
+                    employee_id,
                     user.get("username"),
-                    task.get("completed"),
-                    task.get("title"),
+                    todo.get("completed"),
+                    todo.get("title"),
                 ]
             )
