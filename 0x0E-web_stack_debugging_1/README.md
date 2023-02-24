@@ -19,3 +19,18 @@
 - The first line of all your Bash scripts should be exactly `#!/usr/bin/env bash`
 - The second line of all your Bash scripts should be a comment explaining what is the script doing
 - You are not allowed to use `wget`
+
+## Task 0:
+if nginx is running
+`sudo systemctl start nginx`
+
+knw nginx status
+`sudo systemctl status nginx`
+
+to check if nginx is listening to port 80
+`sudo netstat -tuln | grep 80`
+
+check 
+``
+
+
