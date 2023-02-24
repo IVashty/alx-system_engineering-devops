@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-sudo systemctl start nginx
-sudo netstat -tuln | grep -q "LISTEN.*:80" || (sudo sed -i 's/listen\s\+.*;/listen 80;/g' /etc/nginx/sites-enabled/default && sudo nginx -t && sudo systemctl reload nginx)
+# abit fix in task 0 but short
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 pkill -o nginx
