@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+function that requires the REDDIT api and returns the number of subscribers \
+        from a given subreddit(not active users, total subscribers)
+"""
 import requests
 
 
