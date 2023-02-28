@@ -17,9 +17,9 @@ def number_of_subscribers(subreddit):
         OR
         0 if the subreddit is invalid.
     """
-    user_agent = "My User Agent"
+    user_agent = "programming"
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": user_agent}
+    headers = {"User-Agent": "programming"}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         data = response.json()
