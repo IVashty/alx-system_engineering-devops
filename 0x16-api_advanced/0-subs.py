@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-function interfaces the REDDIT api & requires to returns the number of subscribers \
-        from a given subreddit(not active users, total subscribers)
+Module contans a function that interfaces the REDDIT api & \
+        requires to returns the number of subscribers from a given \
+        subreddit(not active users, total subscribers)
 """
 import requests
 
@@ -19,7 +20,7 @@ def number_of_subscribers(subreddit):
     """
     user_agent = "programming"
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": "programming"}
+    headers = {"User-Agent": "Python/requests"}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         data = response.json()
