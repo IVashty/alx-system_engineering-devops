@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-fucntion that queries the REDDIT api & prints \
+function that queries the REDDIT api & prints \
         the title of the first 10 hot posts listed from a given subreddit
 """
 import requests
@@ -14,7 +14,7 @@ def top_ten(subreddit):
     """
     user_agent = "My User Agent"
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {"User-Agent": user_agent}
+    headers = {"User-Agent": "programming"}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         data = response.json()
