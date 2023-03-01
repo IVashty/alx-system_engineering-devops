@@ -46,3 +46,17 @@
         use `sort()` function to return a lists of paired keys(key-value)
         additionaly use `dictionary()` to convert the sorted lists of the key-value pair
 ```
+
+## REDIT API elements:
+    __Subreddits__: A subreddit is a section of the Reddit website where users can submit and discuss content related to a particular topic.
+    __Posts__: Posts are individual pieces of content submitted by users to a subreddit. They can include text, links, images, and videos.
+    __Comments__: Comments are responses to posts or other comments, and they can be upvoted or downvoted by other users.
+    __Users__: Users are individuals who have created a Reddit account and can submit posts, comments, and upvote or downvote other content.
+    __Votes__: Users can vote on content, either upvoting or downvoting it, which affects its visibility on the platform.
+    __Messages__: Users can send private messages to each other through the Reddit platform.
+    __Moderation__: Subreddits are moderated by a team of moderators who are responsible for enforcing the subreddit's rules and policies. Moderation tools are available through the API for subreddit moderators.
+    __Search__: The API allows for searching for specific content or users on the platform.
+
+    Authentication: The Reddit API supports authentication to enable secure access to user data and other features.
+
+
