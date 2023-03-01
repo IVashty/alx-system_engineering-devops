@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-module interfaces the REDDIT api & requires \
-        to returns the number of subscribers \
+function interfaces the REDDIT api & requires to returns the number of subscribers \
         from a given subreddit(not active users, total subscribers)
 """
 import requests
