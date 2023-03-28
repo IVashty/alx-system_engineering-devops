@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Function that queries the Reddit API and prints
-the top ten hot posts of a subreddit
+
+        the title of the first 10 hot posts listed from a given subreddit
 """
 import requests
 
@@ -13,12 +13,14 @@ def top_ten(subreddit):
         subreddit(str):subreddit to query.
     """
     user_agent = "My User Agent"
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {"User-Agent": "Python/requests"}
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        for post in data["data"]["children"]:
-            print(post["data"]["title"])
-    else:
+    parameter = {"limit": 10}
+    response = requests.get(
+        url, headers=headers, parameter=parameter, allow_redirect=False
+    )
+    if response.status_code == 400:
         print("None")
+        return
+    results = response.json().get("data")
+    [print(child.get("data").get("title")) for child in results.get("children")]
