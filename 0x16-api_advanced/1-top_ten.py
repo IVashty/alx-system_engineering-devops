@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-
-        the title of the first 10 hot posts listed from a given subreddit
+the title of the first 10 hot posts listed from a given subreddit
 """
 import requests
 
@@ -12,7 +11,6 @@ def top_ten(subreddit):
     Args:
         subreddit(str):subreddit to query.
     """
-    user_agent = "My User Agent"
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {"User-Agent": "Python/requests"}
     parameter = {"limit": 10}
